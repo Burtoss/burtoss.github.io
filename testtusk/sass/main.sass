@@ -1,0 +1,668 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid 
+			border-color: red
+		&:required:valid
+			border-color: green
+
+b, strong
+	font-weight: bold
+
+
+// HEADER
+header
+	background-color: #eff0f2
+	min-height: 100vh
+
+.header_top
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100%
+	padding: 60px 15px 0
+
+
+.header_top__menu
+	display: block
+	position: relative
+	cursor: pointer
+	width: 30px
+	height: 22px
+	z-index: 2
+
+.hamburger  
+	display: block
+	width: 30px
+	height: 4px
+	margin-top: 9px
+	border-radius: 1.5px
+	background: #606060
+	-webkit-transition: all 0.4s ease-in-out
+	transition: all 0.4s ease-in-out
+	&::before, &::after  
+		display: block 
+		position: absolute 
+		content: ""
+		z-index: -1
+		width: 30px
+		height: 4px
+		border-radius: 1.5px
+		background: #606060
+		-webkit-transition: all 0.4s ease-in-out
+		transition: all 0.4s ease-in-out 
+	&::before 
+		top: 0
+	&::after 
+		top: 18px
+
+.hamburger--open 
+	.hamburger 
+		background: none
+		&::before, &::after 
+			top: 9px 
+		&::before 
+			-webkit-transform: rotate(-45deg) 
+			-ms-transform: rotate(-45deg) 
+			transform: rotate(-45deg)
+		&::after 
+			-webkit-transform: rotate(45deg) 
+			-ms-transform: rotate(45deg) 
+			transform: rotate(45deg)
+
+.header_h1
+	width: 100%
+	margin: 25vh auto 0
+	text-align: center
+	h1
+		font-family: montserrat, sans-serif
+		font-weight: bold		
+		font-size: 45px
+		line-height: 71px
+		letter-spacing: 2.7px
+		text-transform: uppercase
+		color: #505050
+		text-shadow: 4px 9px 10px rgba(#000, 0.24)
+		span
+			background-color: #B2F2EE
+			padding: 3px 9px
+
+.header_button
+	text-align: center
+	width: 100%
+	margin: 15vh 20px 100px
+	position: relative
+	&:after
+		content: ""
+		position: absolute
+		right: 70px
+		top: 0
+		width: 88px
+		height: 88px
+		background: url("../img/_src/juice_glass.png")
+
+.button
+	letter-spacing: 2.2px
+	text-transform: uppercase
+	font-family: montserrat, sans-serif
+	font-size: 18px
+	color: rgba(#000, 0.75)
+	border: 2px solid rgba(#000, 0.5)
+	border-radius: 2px
+	padding: 18px 47px
+	transition: all 0.5s ease
+	&:hover
+		text-decoration: none
+		color: #606061
+		background-color: #B2F2EE
+// HEADER END
+
+//SECTIONS
+.bg_grey
+	background-color: #F8FAFA
+section
+	padding: 130px 0 120px
+	text-align: center
+	background-color: #fff
+	h2
+		width: 100%
+		font-family: montserrat, sans-serif
+		font-weight: bold
+		font-size: 38px
+		line-height: 1
+		margin: 0 auto 10px
+		letter-spacing: 2.3px
+		text-transform: uppercase
+		color: rgba(#000, 0.9)
+	.section_subtitle
+		font-family: merriweather, sans-serif
+		font-size: 18px
+		letter-spacing: 1px
+		padding: 0 15px
+		text-transform: uppercase
+		color: rgba(#000, 0.62)
+		margin: 0 auto 120px 
+//SECTIONS END
+
+// ABOUT
+.section_about_content
+	display: flex
+	justify-content: space-around
+	align-items: center
+
+.section_about_slider
+	width: 50%
+	max-width: 480px
+	.slick-dots
+		left: 220px	
+	&_img
+		position: relative
+		img
+			position: relative
+			margin: 0 auto
+			width: 100%
+			max-width: 390px
+			height: auto
+			z-index: 30
+			box-shadow: 0 0 30px rgba(#000, 0.13)	
+	&_overlay
+		content: ""
+		position: absolute
+		top: 36px
+		left: 0
+		width: 100%
+		height: 410px
+		background-color: #EFF0F2
+		z-index: 10
+
+.section_about_text
+	width: 50%
+	padding: 0 60px
+	text-align: left
+	h3
+		font-family: merriweather, sans-serif
+		font-weight: bold
+		font-size: 20px
+		letter-spacing: 1.2px
+		text-transform: uppercase
+		color: rgba(#000, 0.75)
+		margin: 0 0 20px
+	p
+		margin: 0 0 30px
+// ABOUT END
+
+//WORKS
+.section_works_content
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-wrap: wrap
+	img
+		width: 100%
+		max-width: 370px
+		padding: 7px
+		height: auto
+//WORKS END
+
+//SERVICES
+.section_services_content
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+
+.section_services_item
+	display: flex
+	align-items: center
+	justify-content: center
+	position: relative
+	height: 370px
+	overflow: hidden
+	margin: 7px
+	&:nth-child(1), &:nth-child(3), &:nth-child(6)
+		width: calc(60% - 14px)
+	&:nth-child(2), &:nth-child(4), &:nth-child(5)
+		width: calc(40% - 14px)
+	img
+		width: 100%
+		height: auto
+
+.section_services_item_before
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	z-index: 20
+	background-color: rgba(#000, 0.6)
+	color: rgba(#fff, 0.9)
+	text-align: left
+	padding: 160px 55px 60px
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+	flex-direction: column
+	h3
+		font-family: merriweather, sans-serif
+		font-weight: bold
+		font-size: 20px
+		letter-spacing: 1px
+		text-transform: uppercase
+	p
+		font-family: raleway, sans-serif
+		font-size: 16px
+		letter-spacing: 0.3px
+	button
+		background-color: transparent
+		border: none
+		color: rgba(#fff, 0.9)
+		text-transform: uppercase
+		padding: 0
+		font-size: 18px
+		cursor: pointer
+		outline: none
+		i 
+			font-size: 21px
+			padding: 0 0 0 5px
+		&:hover
+			color: #B2F2EE
+
+.section_services_item_after
+	position: absolute
+	opacity: 0
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	z-index: 0
+	background-color: #70F5EB
+	text-align: left
+	padding: 60px 70px 60px
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+	flex-direction: column
+	transition: opacity 0.4s ease
+	h3
+		font-family: merriweather, sans-serif
+		font-weight: bold
+		font-size: 20px
+		color: rgba(#000, 0.83)
+		letter-spacing: 1px
+		text-transform: uppercase
+	p
+		font-family: raleway, sans-serif
+		color: rgba(#000, 0.75)
+		font-size: 16px
+		letter-spacing: 0.3px
+	button
+		background-color: transparent
+		border: none
+		color: rgba(#000, 0.4)
+		padding: 0
+		font-size: 25px
+		cursor: pointer
+		outline: none
+		transition: color 0.3s ease
+		&:hover
+			color: #000
+
+.services_item_toggle
+	opacity: 1
+	z-index: 30
+//SERVICES END
+
+//TEAM
+.section_team_content
+	display: flex
+	justify-content: space-around
+	align-items: center
+	flex-wrap: wrap
+
+.section_team_item
+	width: 30%
+	max-width: 370px
+	padding: 7px 0
+	cursor: pointer
+	position: relative
+	&:hover .section_team_item_after
+		display: flex
+	img
+		width: 100%
+		max-width: 370px
+		height: auto
+		
+.section_team_item_after
+	width: 90%
+	max-width: 340px
+	height: 240px
+	position: absolute
+	left: 5%
+	bottom: 23px
+	display: none
+	flex-direction: column
+	background-color: #6FF6EB
+	text-align: left
+	padding: 40px 35px
+	transition: all 1s ease
+	box-shadow: 0 0 15px rgba(#000, 0.15)
+	&:after
+		content: ""
+		position: absolute
+		top: -30px
+		left: 20px
+		border: 10px solid transparent	
+		border-bottom: 20px solid #6FF6EB
+	h3
+		font-family: merriweather, sans-serif
+		font-weight: bold
+		font-size: 20px
+		color: rgba(#272727, 0.95)
+		text-transform: uppercase
+		span
+			color: rgba(#767070, 0.95)
+			font-size: 15px
+			text-transform: none
+			font-weight: normal
+			font-style: italic
+	p
+		font-family: raleway, sans-serif
+		font-size: 16px
+		color: rgba(#000, 0.8)
+	.social i
+		color: rgba(#000, 0.7)
+		font-size: 16px
+		padding: 0 5px
+		&:hover
+			color: #FFB073
+//TEAM END
+
+//SAYS
+.section_says_content
+	position: relative
+	width: 100%
+
+.section_says_item
+	display: flex !important
+	justify-content: space-between
+	align-items: center
+	margin-bottom: 30px
+	.section_says_img
+		position: relative
+		width: 30%
+		margin-left: 50px
+		&:before
+			content: ""
+			position: absolute
+			top: 25px
+			left: -15%
+			z-index: 10
+			background-color: #ECEDEF
+			height: 360px
+			width: 130%
+		img
+			width: auto
+			height: 410px
+			position: relative
+			z-index: 20
+			box-shadow: 6px 0 24px rgba(#000, 0.17)
+	.section_says_text
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		width: 55%
+		height: 360px
+		border-radius: 3px
+		background-color: #EAEBED
+		padding: 0 80px
+		margin-left: 70px
+		h3
+			font-family: merriweather, sans-serif
+			font-weight: bold
+			font-size: 20px
+			color: rgba(#000, 0.95)
+			text-transform: uppercase
+			margin-bottom: 25px
+			span
+				font-weight: normal
+				font-size: 15px
+				font-style: italic
+				color: rgba(#787878, 0.95)
+		p
+			color: rgba(#000, 0.7)
+			margin-bottom: 30px
+		.section_says_text_rating
+			color: #F2DA3B
+
+.slick-next, .slick-prev
+	position: absolute
+	right: 0
+	bottom: -30px
+	border: none
+	padding: 18px 19px 15px
+	border-radius: 3px
+	background-color: #fff
+	color: #B2B2B2
+	font-size: 18px
+	line-height: 18px
+	cursor: pointer
+	box-shadow: 0 8px 11px rgba(#000, 0.05)
+	transition: all 0.3s ease
+	&:hover
+		background-color: #71F6EB
+		color: #25514D
+	&:focus
+		outline: none
+.slick-prev
+	right: 80px
+
+.slick-dots
+	position: absolute
+	bottom: -35px
+	left: 185px
+	list-style-type: none
+	padding: 0
+	margin: 0
+	li
+		display: inline-block
+		cursor: pointer
+		height: 10px
+		width: 10px
+		border-radius: 3px
+		background-color: #D0D0D0
+		margin-right: 4px 
+		&.slick-active
+			background-color: #71F6EB
+		button
+			display: none
+//SAYS END
+
+//CLIENTS
+.section_clients_content
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-wrap: wrap-reverse
+	width: 100%
+	a
+		display: block
+		width: 130px
+		height: 60px
+		margin: 15px 20px
+		&:nth-child(1)
+			background: url("../img/_src/client_logo_6.png")
+			background-position: 0 60px
+		&:nth-child(2)
+			background: url("../img/_src/client_logo_5.png")
+			background-position: 0 60px
+		&:nth-child(3)
+			background: url("../img/_src/client_logo_1.png")
+			background-position: 0 60px
+		&:nth-child(4)
+			background: url("../img/_src/client_logo_3.png")
+			background-position: 0 60px
+		&:nth-child(5)
+			background: url("../img/_src/client_logo_4.png")
+			background-position: 0 60px
+		&:nth-child(6)
+			background: url("../img/_src/client_logo_2.png")
+			background-position: 0 60px
+		&:nth-child(7)
+			background: url("../img/_src/client_logo_2.png")
+			background-position: 0 60px
+		&:nth-child(8)
+			background: url("../img/_src/client_logo_3.png")
+			background-position: 0 60px
+		&:nth-child(9)
+			background: url("../img/_src/client_logo_4.png")
+			background-position: 0 60px
+		&:hover
+			background-position: 0 0
+//CLIENTS END
+
+//CONTACTS
+.section_contacts
+	position: relative
+	background-color: transparent
+	&::after
+		content: ""
+		background: url("../img/_src/footer_bg.png")
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: bottom center
+		opacity: 0.6
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		position: absolute
+		z-index: -1
+	&_content
+		display: flex
+		width: 100%
+		justify-content: space-between
+		align-items: center
+
+.section_contacts_form
+	padding: 35px 30px
+	background-color: rgba(#021623, 0.71)
+	color: rgba(#fff, 0.6)
+	font-size: 15px
+	width: 53%
+	height: 460px
+	text-align: left
+	label
+		cursor: pointer
+	input, textarea
+		background-color: transparent
+		flex-basis: 85%
+		color: #fff
+		border: none
+		resize: none
+		&:focus, &:hover 
+	textarea
+		height: 80px
+	.input
+		width: 100%
+		display: flex
+		padding: 25px 0 5px
+		justify-content: space-between
+		align-items: flex-start
+		border-bottom: 1px solid rgba(#fff, 0.6)
+		&:focus
+			border-bottom-color: red
+	.button
+		cursor: pointer
+		color: rgba(#000, 0.7)
+		line-height: 18px
+		border: none
+		padding: 19px 35px 18px
+		margin-top: 40px
+		background-color: #6EEEE4
+		transition: all 0.4s ease
+		&:hover
+			background-color: #29E6D7
+.section_contacts_map
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	justify-content: space-between
+	padding: 20px
+	background-color: rgba(#021623, 0.71)
+	width: 50%
+	max-width: 500px
+	height: 460px
+	.section_contacts_text
+		padding: 5px 0 20px
+		p
+			text-align: left
+			color: rgba(#fff, 0.7)
+			font-size: 15px
+			margin: 0
+	.section_contacts_img
+		img
+			width: 100%
+			height: auto
+//CONTACTS END
+
+
+//FOOTER
+footer
+	padding: 90px 0
+	background-color: #262B2E
+	text-align: center
+.footer_content
+	display: flex
+	margin: 0 auto
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	h2
+		font-family: raleway, sans-serif
+		font-weight: normal
+		text-transform: uppercase
+		letter-spacing: 2px
+		margin-bottom: 15px
+		color: rgba(#fff, 0.8)
+	.footer_social
+		margin-bottom: 35px
+		i
+			width: 45px
+			height: 40px
+			background-color: #424648
+			color: #BBB8B9
+			cursor: pointer
+			font-size: 24px
+			line-height: 43px
+			margin: 0 5px
+			transition: all 0.4s ease
+			&:hover
+				background-color: #29E6D7
+				color: #fff
+	p
+		margin: 0
+		color: rgba(#fff, 0.4)
+		font-weight: 500
+//FOOTER END
+
+	
+@import "media" // Always at the end
