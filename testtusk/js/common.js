@@ -35,4 +35,6 @@ $(function() {
 		autoplay: true,
 		autoplaySpeed: 5000
 	});
+
+	$("a[data-rel='m_PageScroll2id']").mPageScroll2id();
 });
